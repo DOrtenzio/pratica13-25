@@ -2,6 +2,7 @@ package com.example.pratica1325;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FileCSV {
     private ArrayList<Record> contenutoFile;
@@ -57,5 +58,17 @@ public class FileCSV {
         }
     }
 
-    private void 
+    //Aggiornamento dei file
+    public void aggiornaFile(){
+        Collections.sort(medie); //ordino
+        try (PrintWriter pw=new PrintWriter(new FileWriter("src/main/resources/com/example/pratica1325/report.csv"))){
+            pw.println(intestazione.get(1)+";"+intestazione.get(2));
+            for (Record r:medie){
+                pw.println(r.simileToString());
+            }
+            pw.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
