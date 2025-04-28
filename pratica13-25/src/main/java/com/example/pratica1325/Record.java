@@ -36,7 +36,7 @@ public class Record implements Comparable<Record>{
     public boolean equals(Object o) {
         if (o instanceof Record) {
             Record record = (Record) o;
-            return anno == record.getAnno() && percDiffusione==record.getPercDiffusione() && regione.equalsIgnoreCase(record.getRegione());
+            return anno == record.getAnno() && regione.equalsIgnoreCase(record.getRegione());
         }
         return false;
     }
